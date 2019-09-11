@@ -1,22 +1,25 @@
 package com.example.mdevillers.coroutineslifecycle.viewmodel
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.mdevillers.coroutineslifecycle.R
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class ViewModelExampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val viewModelProvider = ViewModelProvider(this)
-        val viewModel = viewModelProvider[MainViewModel::class.java]
+        val viewModel = viewModelProvider[ViewModelExample::class.java]
         lifecycleScope.launch {
-            viewModel.result.await()
+            val result = viewModel.resultAsync.await()
+            val textView = findViewById<TextView>(R.id.text)
+            textView.text = result
         }
     }
 }

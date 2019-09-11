@@ -12,7 +12,7 @@ class ViewModelExampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_resumed)
 
         val viewModelProvider = ViewModelProvider(this)
         val viewModel = viewModelProvider[ViewModelExample::class.java]

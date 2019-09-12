@@ -46,8 +46,8 @@ class MainApplication : Application() {
     private suspend fun startNotificationTimer(id: Int, title: String) {
         try {
             for (i in 0..Long.MAX_VALUE) {
-                delay(1000)
                 showNotification(id, title, "ACTIVE $i")
+                delay(1000)
             }
         } catch (e: CancellationException) {
             showNotification(id, title, "CANCELLED")
